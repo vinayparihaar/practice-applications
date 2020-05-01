@@ -1,5 +1,10 @@
 package com.vinay.jpa.rest.shoppingcart.dao.impl;
 
+/**
+ * @author VinayParihar
+ * @date May 1, 2020 @time 12:22:12 AM 
+ */
+
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;

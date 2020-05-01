@@ -1,5 +1,10 @@
 package com.vinay.jpa.rest.shoppingcart.service.impl;
 
+/**
+ * @author VinayParihar
+ * @date May 1, 2020 @time 12:22:12 AM 
+ */
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,13 +16,14 @@ import com.vinay.jpa.rest.shoppingcart.model.UserDetails;
 import com.vinay.jpa.rest.shoppingcart.service.IUserRegistrationService;
 
 public class UserRegistrationService implements IUserRegistrationService {
-	private static final Logger LOGGER= LoggerFactory.getLogger(UserRegistrationService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserRegistrationService.class);
 	private IUserRegistrationDAO iUserRegistrationDAO;
 	private UserDetails userDetails;
 	private AddressDetails addressDetails;
 
 	@Override
 	public boolean createUser(User user) {
+		
 		LOGGER.debug("Entered createUser. ");
 		userDetails = new UserDetails();
 		userDetails.setFirstName(user.getFirstName());
@@ -26,20 +32,18 @@ public class UserRegistrationService implements IUserRegistrationService {
 		userDetails.setPhone(user.getPhone());
 		userDetails.setPassword(user.getPassword());
 
-		
-		  addressDetails = new AddressDetails();
-		  addressDetails.setAddressId(user.getAddress().getAddressid());
-		  addressDetails.setAddressLineOne(user.getAddress().getLineOne());
-		  addressDetails.setAddressLineTwo(user.getAddress().getLineTwo());
-		  addressDetails.setAddressCity(user.getAddress().getCity());
-		  addressDetails.setAddressState(user.getAddress().getState());
-		  addressDetails.setAddressZipcode(user.getAddress().getZipcode());
-		  addressDetails.setAddressCountry(user.getAddress().getCountry());
-		 
+		addressDetails = new AddressDetails();
+		addressDetails.setAddressId(user.getAddress().getAddressid());
+		addressDetails.setAddressLineOne(user.getAddress().getLineOne());
+		addressDetails.setAddressLineTwo(user.getAddress().getLineTwo());
+		addressDetails.setAddressCity(user.getAddress().getCity());
+		addressDetails.setAddressState(user.getAddress().getState());
+		addressDetails.setAddressZipcode(user.getAddress().getZipcode());
+		addressDetails.setAddressCountry(user.getAddress().getCountry());
 
 		userDetails.setAddressDetails(addressDetails);
-		
-		iUserRegistrationDAO=new UserRegistrationDAO();
+
+		iUserRegistrationDAO = new UserRegistrationDAO();
 
 		return iUserRegistrationDAO.createUser(userDetails);
 	}

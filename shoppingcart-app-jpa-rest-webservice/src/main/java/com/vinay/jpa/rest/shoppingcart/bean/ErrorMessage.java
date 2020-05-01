@@ -1,5 +1,13 @@
 package com.vinay.jpa.rest.shoppingcart.bean;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * @author VinayParihar
+ * @date May 1, 2020 @time 12:22:12 AM 
+ */
+
+@XmlRootElement
 public class ErrorMessage {
 
 	private String errorMessage;
