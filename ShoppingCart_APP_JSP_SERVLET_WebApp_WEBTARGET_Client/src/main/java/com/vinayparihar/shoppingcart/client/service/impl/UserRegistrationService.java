@@ -32,17 +32,21 @@ public class UserRegistrationService implements IUserRegistrationService {
 
 		Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFilter.class));
 		// WebTarget webTarget =
-		// client.target("http://localhost:8080/userregrestwebservice/webapi/users");
+		// client.target("http://localhost:8080/userregrestwebservice/webapi/register");
+		
 		// (or)
+		
 		WebTarget webTarget = client.target("http://localhost:8010/shoppingcart/webapi").path("register");
 		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
 		response = invocationBuilder.post(Entity.entity(user, MediaType.APPLICATION_JSON));
+		
 		/*
 		 * if (response != null && (response.getStatus() == 201 || response.getStatus()
 		 * == 200)) {
 		 * 
 		 * }
 		 */
+		
 		if (response != null) {
 			System.out.println(response.getStatus());
 			System.out.println(response.getHeaders());

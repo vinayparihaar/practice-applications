@@ -33,9 +33,12 @@ public class UserLoginService {
 		LOGGER.debug("Entered loginUser. ");
 
 		Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFilter.class));
+		
 		// WebTarget webTarget =
-		// client.target("http://localhost:8080/userregrestwebservice/webapi/users");
+		// client.target("http://localhost:8080/userregrestwebservice/webapi/login");
+		
 		// (or)
+		
 		WebTarget webTarget = client.target("http://localhost:8010/shoppingcart/webapi").path("login");
 		Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.post(Entity.entity(login, MediaType.APPLICATION_JSON));
@@ -102,6 +105,7 @@ public class UserLoginService {
  * 
  * }
  */
+
 
 
 /*
