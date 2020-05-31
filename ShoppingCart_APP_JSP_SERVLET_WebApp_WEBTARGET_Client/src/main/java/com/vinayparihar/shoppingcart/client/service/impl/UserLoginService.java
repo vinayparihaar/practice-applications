@@ -66,9 +66,7 @@ public class UserLoginService {
 			}
 		}
 		return null;
-
 	}
-
 }
 
 /*

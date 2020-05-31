@@ -56,9 +56,6 @@ public class UserRegistrationService implements IUserRegistrationService {
 				return true;
 			}
 		}
-
 		return false;
-
 	}
-
 }
